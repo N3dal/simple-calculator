@@ -60,6 +60,9 @@ def clear():
         system("cls")
 
 
+clear(1)
+
+
 def start_app(root: tkinter.Tk):
     """"""
     # note: add any thing you want to do,
@@ -69,6 +72,10 @@ def start_app(root: tkinter.Tk):
 
 def main_window():
     """main window for the calculator."""
+
+    root = tkinter.Tk()
+
+    start_app(root)
 
 
 def main():
