@@ -86,6 +86,14 @@ def main_window():
     # set the size of our window and also the start position.
     root.geometry(f"{WIN_WIDTH}x{WIN_HEIGHT}")
 
+    # create calculator screen variables.
+    # and those are input, and output(result).
+    input_var = tkinter.StringVar()
+    result_var = tkinter.StringVar()
+
+    # make sure to initialize those vars.
+    input_var.set("")
+    result_var.set("")
 
     start_app(root)
 
