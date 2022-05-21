@@ -29,8 +29,19 @@ def clear():
         system("cls")
 
 
+def start_app(root: tkinter.Tk):
+    """"""
+    # note: add any thing you want to do,
+    # with the startup.
+    root.mainloop()
+
+
+def main_window():
+    """main window for the calculator."""
+
+
 def main():
-    pass
+    main_window()
 
 
 if __name__ == "__main__":
