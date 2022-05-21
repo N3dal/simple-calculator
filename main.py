@@ -17,6 +17,37 @@ from os import name as OS_NAME
 import tkinter
 
 
+# set the program defaults.
+WIN_WIDTH = 344
+WIN_HEIGHT = 454
+WIN_TITLE = "Calculator"
+WIN_BG = "black"
+WIDGETS_FONT = "Calibre"
+
+BTN_STYLE = {
+    "font": ("calibre", 14, "bold"),
+    "width": 5,
+    "height": 2,
+    "borderwidth": 0,
+    "highlightbackground": "black",
+    "highlightthickness": 0,
+    "bg": "gray22",
+    "fg": "white",
+    "activebackground": "gray28",
+    "activeforeground": "white"
+
+}
+
+LABEL_STYLE = {
+    "borderwidth": 0,
+    "highlightbackground": "black",
+    "highlightthickness": 0,
+    "bg": "black",
+    "fg": "white",
+
+}
+
+
 def clear():
     """wipe the terminal screen"""
 
