@@ -98,6 +98,17 @@ def main_window():
     start_app(root)
 
 
+def print_symbol_to_screen(symbol: str, screen_var: tkinter.StringVar):
+    """print user input to the calculator screen."""
+
+    # first we have to get what is on the screen.
+    # and we can do that by getting what is inside,
+    # the screen_var.
+    temp_var = screen_var.get()
+
+    screen_var.set(temp_var + str(symbol))
+
+
 def main():
     main_window()
 
