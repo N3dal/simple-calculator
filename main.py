@@ -82,7 +82,7 @@ def start_app(root: tkinter.Tk):
     root.mainloop()
 
 
-def print_symbol_to_screen(symbol: str, screen_var: tkinter.StringVar):
+def print_symbol_to_screen(screen_var: tkinter.StringVar, symbol: str):
     """print user input to the calculator screen."""
 
     # first we have to get what is on the screen.
