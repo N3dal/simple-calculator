@@ -235,15 +235,18 @@ def main_window():
     eql_btn.place(x=170, y=343)
 
     # create clear buttons.
-    # first we have to edit the button style for this button.
-    BTN_STYLE["width"] = 13
 
-    btnCls = tkinter.Button(root, text="AC", command=btnClsComnd, **btnStyle)
+    clear_screen_btn = tkinter.Button(
+        root, text="AC", command=lambda: clear_screen_btn_command(input_var, result_var),
+        width=13, **CLEAR_BTN_STYLE)
 
-    # first we have to edit the button style for this button.
-    btnStyle["width"] = 11
-    btnClearLastDigit = tkinter.Button(
-        root, text='C', command=btnClearLastDigitComnd, **btnStyle)
+    clear_last_digit_btn = tkinter.Button(
+        root, text='C', command=lambda: clear_last_digit_btn_command(input_var, result_var),
+        width=11, **CLEAR_BTN_STYLE)
+
+    # now place clear buttons.
+    clear_screen_btn.place(x=0, y=398)
+    clear_last_digit_btn.place(x=177, y=398)
 
     start_app(root)
 
