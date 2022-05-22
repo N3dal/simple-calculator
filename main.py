@@ -248,6 +248,21 @@ def main_window():
     clear_screen_btn.place(x=0, y=398)
     clear_last_digit_btn.place(x=177, y=398)
 
+    # create labels for showing the user input and result,
+    # simply-out screen-labels.
+
+    screen_label = tkinter.Label(
+        root, textvariable=input_var,  font=(WIDGETS_FONT, 14, "bold"),
+        width=30, height=4, anchor='nw', **LABEL_STYLE)
+
+    result_label = tkinter.Label(
+        root, textvariable=result_var,  font=(WIDGETS_FONT, 22, "bold"),
+        width=17, height=2, anchor='se', **LABEL_STYLE)
+
+    # place screen labels.
+    screen_label.place(x=0, y=5)
+    result_label.place(x=0, y=50)
+
     start_app(root)
 
 
