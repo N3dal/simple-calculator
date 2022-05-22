@@ -138,6 +138,13 @@ def eql_btn_command(screen_var: tkinter.StringVar, result_var: tkinter.StringVar
     result_var.set(result)
 
 
+def clear_screen_btn_command(screen_var: tkinter.StringVar, result_var: tkinter.StringVar):
+    """wipe the result screen and the input screen."""
+
+    screen_var.set("")
+    result_var.set("")
+
+
 def main():
     main_window()
 
