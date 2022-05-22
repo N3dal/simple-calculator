@@ -19,7 +19,7 @@ import tkinter
 # TODO:
 # [1]- add click effect on calc buttons, for example:
 # when you click on the number 2 the color will change to,
-# darkorange, and when you relese the color will back to,
+# darkorange, and when you release the color will back to,
 # the default color for our case is gray.
 
 # set the program defaults.
