@@ -109,6 +109,35 @@ def print_symbol_to_screen(symbol: str, screen_var: tkinter.StringVar):
     screen_var.set(temp_var + str(symbol))
 
 
+def eql_btn_command(screen_var: tkinter.StringVar, result_var: tkinter.StringVar):
+    """calculate the user input and set it,
+    to the result var."""
+
+    # get the user input.
+    user_input = screen_var.get()
+
+    # Guard-Condition.
+    if "÷0" in user_input:
+        # make sure the user is not divide on zero.
+        result_var.set("Error")
+        return None
+
+    # now replace all special vars with normal ones.
+    user_input = user_input.replace("÷", "/").replace("x", "*")
+
+    # now calculate the result,
+    # and make sure to convert-it to string.
+    result = str(eval(user_input))
+
+    # now make sure to remove useless zero's.
+    if result.endswith(".0"):
+        # now remove the last two digits including '.' and '0'.
+        result = result[:-2]
+
+    # now set the result to the result_screen_var.
+    result_var.set(result)
+
+
 def main():
     main_window()
 
