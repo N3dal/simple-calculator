@@ -21,6 +21,8 @@ import tkinter
 # when you click on the number 2 the color will change to,
 # darkorange, and when you release the color will back to,
 # the default color for our case is gray.
+# [2]- use json file to save the btn_style and label style,
+# and move them to another python file.
 
 # set the program defaults.
 WIN_WIDTH = 344
