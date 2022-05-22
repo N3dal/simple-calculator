@@ -22,7 +22,7 @@ import tkinter
 # darkorange, and when you release the color will back to,
 # the default color for our case is gray.
 # [2]- use json file to save the btn_style and label style,
-# and move them to another python file.
+# and move them to another python file => for second-version.
 
 # set the program defaults.
 WIN_WIDTH = 344
