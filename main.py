@@ -70,34 +70,6 @@ def start_app(root: tkinter.Tk):
     root.mainloop()
 
 
-def main_window():
-    """main window for the calculator."""
-
-    root = tkinter.Tk()
-
-    root.title(WIN_TITLE)
-
-    # set the background.
-    root.configure(bg=WIN_BG)
-
-    # make the window un-resizable.
-    root.resizable(False, False)
-
-    # set the size of our window and also the start position.
-    root.geometry(f"{WIN_WIDTH}x{WIN_HEIGHT}")
-
-    # create calculator screen variables.
-    # and those are input, and output(result).
-    input_var = tkinter.StringVar()
-    result_var = tkinter.StringVar()
-
-    # make sure to initialize those vars.
-    input_var.set("")
-    result_var.set("")
-
-    start_app(root)
-
-
 def print_symbol_to_screen(symbol: str, screen_var: tkinter.StringVar):
     """print user input to the calculator screen."""
 
@@ -153,6 +125,34 @@ def clear_last_digit_btn_command(screen_var: tkinter.StringVar, result_var: tkin
     new_screen_var = temp_screen_var[:-1]
 
     screen_var.set(new_screen_var)
+
+
+def main_window():
+    """main window for the calculator."""
+
+    root = tkinter.Tk()
+
+    root.title(WIN_TITLE)
+
+    # set the background.
+    root.configure(bg=WIN_BG)
+
+    # make the window un-resizable.
+    root.resizable(False, False)
+
+    # set the size of our window and also the start position.
+    root.geometry(f"{WIN_WIDTH}x{WIN_HEIGHT}")
+
+    # create calculator screen variables.
+    # and those are input, and output(result).
+    input_var = tkinter.StringVar()
+    result_var = tkinter.StringVar()
+
+    # make sure to initialize those vars.
+    input_var.set("")
+    result_var.set("")
+
+    start_app(root)
 
 
 def main():
