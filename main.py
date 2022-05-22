@@ -145,6 +145,16 @@ def clear_screen_btn_command(screen_var: tkinter.StringVar, result_var: tkinter.
     result_var.set("")
 
 
+def clear_last_digit_btn(screen_var: tkinter.StringVar, result_var: tkinter.StringVar):
+    """remove the last digit from the user input."""
+
+    temp_screen_var = screen_var.get()
+
+    new_screen_var = temp_screen_var[:-1]
+
+    screen_var.set(new_screen_var)
+
+
 def main():
     main_window()
 
