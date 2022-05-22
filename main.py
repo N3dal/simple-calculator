@@ -152,6 +152,51 @@ def main_window():
     input_var.set("")
     result_var.set("")
 
+    # create the buttons.
+    btn0 = tkinter.Button(
+        root, text='0', command=lambda: print_symbol_to_screen(input_var, '0'), **BTN_STYLE)
+
+    btn1 = tkinter.Button(
+        root, text='1', command=lambda: print_symbol_to_screen(input_var, '1'), **BTN_STYLE)
+
+    btn2 = tkinter.Button(
+        root, text='2', command=lambda: print_symbol_to_screen(input_var, '2'), **BTN_STYLE)
+
+    btn3 = tkinter.Button(
+        root, text='3', command=lambda: print_symbol_to_screen(input_var, '3'), **BTN_STYLE)
+
+    btn4 = tkinter.Button(
+        root, text='4', command=lambda: print_symbol_to_screen(input_var, '4'), **BTN_STYLE)
+
+    btn5 = tkinter.Button(
+        root, text='5', command=lambda: print_symbol_to_screen(input_var, '5'), **BTN_STYLE)
+
+    btn6 = tkinter.Button(
+        root, text='6', command=lambda: print_symbol_to_screen(input_var, '6'), **BTN_STYLE)
+
+    btn7 = tkinter.Button(
+        root, text='7', command=lambda: print_symbol_to_screen(input_var, '7'), **BTN_STYLE)
+
+    btn8 = tkinter.Button(
+        root, text='8', command=lambda: print_symbol_to_screen(input_var, '8'), **BTN_STYLE)
+
+    btn9 = tkinter.Button(
+        root, text='9', command=lambda: print_symbol_to_screen(input_var, '9'), **BTN_STYLE)
+
+    # place the number now.
+    btn0.place(x=85, y=343)
+    btn1.place(x=0, y=288)
+    btn2.place(x=85, y=288)
+    btn3.place(x=170, y=288)
+    btn4.place(x=0, y=232)
+    btn5.place(x=85, y=232)
+    btn6.place(x=170, y=232)
+    btn7.place(x=0, y=176)
+    btn8.place(x=85, y=176)
+    btn9.place(x=170, y=176)
+
+    # create operations buttons.
+
     start_app(root)
 
 
