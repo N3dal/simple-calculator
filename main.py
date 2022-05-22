@@ -37,6 +37,18 @@ BTN_STYLE = {
     "activeforeground": "white"
 
 }
+CLEAR_BTN_STYLE = {
+    "font": ("calibre", 14, "bold"),
+    "height": 2,
+    "borderwidth": 0,
+    "highlightbackground": "black",
+    "highlightthickness": 0,
+    "bg": "gray22",
+    "fg": "white",
+    "activebackground": "gray28",
+    "activeforeground": "white"
+
+}
 
 LABEL_STYLE = {
     "borderwidth": 0,
@@ -222,6 +234,16 @@ def main_window():
     dot_btn.place(x=0, y=343)
     eql_btn.place(x=170, y=343)
 
+    # create clear buttons.
+    # first we have to edit the button style for this button.
+    BTN_STYLE["width"] = 13
+
+    btnCls = tkinter.Button(root, text="AC", command=btnClsComnd, **btnStyle)
+
+    # first we have to edit the button style for this button.
+    btnStyle["width"] = 11
+    btnClearLastDigit = tkinter.Button(
+        root, text='C', command=btnClearLastDigitComnd, **btnStyle)
 
     start_app(root)
 
