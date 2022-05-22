@@ -183,7 +183,7 @@ def main_window():
     btn9 = tkinter.Button(
         root, text='9', command=lambda: print_symbol_to_screen(input_var, '9'), **BTN_STYLE)
 
-    # place the number now.
+    # place the number buttons.
     btn0.place(x=85, y=343)
     btn1.place(x=0, y=288)
     btn2.place(x=85, y=288)
@@ -196,6 +196,32 @@ def main_window():
     btn9.place(x=170, y=176)
 
     # create operations buttons.
+    add_btn = tkinter.Button(
+        root, text='+', command=lambda: print_symbol_to_screen(input_var, '+'), **BTN_STYLE)
+
+    sub_btn = tkinter.Button(
+        root, text='-', command=lambda: print_symbol_to_screen(input_var, '-'), **BTN_STYLE)
+
+    mul_btn = tkinter.Button(
+        root, text='x', command=lambda: print_symbol_to_screen(input_var, 'x'), **BTN_STYLE)
+
+    div_btn = tkinter.Button(
+        root, text='÷', command=lambda: print_symbol_to_screen(input_var, '÷'), **BTN_STYLE)
+
+    dot_btn = tkinter.Button(
+        root, text='.', command=lambda: print_symbol_to_screen(input_var, '.'), **BTN_STYLE)
+
+    eql_btn = tkinter.Button(root, text="=", command=lambda: eql_btn_command(
+        input_var, result_var), **BTN_STYLE)
+
+    # place operations buttons.
+    mul_btn.place(x=255, y=176)
+    sub_btn.place(x=255, y=232)
+    add_btn.place(x=255, y=288)
+    div_btn.place(x=255, y=343)
+    dot_btn.place(x=0, y=343)
+    eql_btn.place(x=170, y=343)
+
 
     start_app(root)
 
