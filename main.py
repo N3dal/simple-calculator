@@ -71,12 +71,16 @@ def clear():
     """wipe the terminal screen"""
 
     if OS_NAME == "posix":
-        # *nix machines.
+        # for *nix machines.
         system("clear")
 
-    else:
-        # windows machines.
+    elif OS_NAME == "windows":
         system("cls")
+
+    else:
+        # for all other os in the world.
+        # system("your-command")
+        pass
 
 
 clear()
