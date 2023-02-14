@@ -21,8 +21,7 @@ import tkinter
 # when you click on the number 2 the color will change to,
 # darkorange, and when you release the color will back to,
 # the default color for our case is gray.
-# [2]- use json file to save the btn_style and label style,
-# and move them to another python file => for second-version.
+
 
 # set the program defaults.
 WIN_WIDTH = 344
@@ -103,6 +102,8 @@ def print_symbol_to_screen(screen_var: tkinter.StringVar, symbol: str):
 
     screen_var.set(temp_var + str(symbol))
 
+    return lambda: print_symbol_to_screen(screen_var, symbol)
+
 
 def eql_btn_command(screen_var: tkinter.StringVar, result_var: tkinter.StringVar):
     """calculate the user input and set it,
@@ -150,6 +151,28 @@ def clear_last_digit_btn_command(screen_var: tkinter.StringVar, result_var: tkin
     screen_var.set(new_screen_var)
 
 
+def button_click_event(button: tkinter.Button):
+    """
+        when we click on any button;
+
+        return None;
+    """
+    button.configure(background="darkorange", activebackground="darkorange")
+
+    return None
+
+
+def button_release_event(button: tkinter.Button):
+    """
+        release event on any button;
+
+        return None;
+    """
+    button.configure(background="gray22", activebackground="gray28")
+
+    return None
+
+
 def main_window():
     """main window for the calculator."""
 
@@ -176,76 +199,11 @@ def main_window():
     result_var.set("")
 
     # create the buttons.
-    btn0 = tkinter.Button(
-        root, text='0', command=lambda: print_symbol_to_screen(input_var, '0'), **BTN_STYLE)
-
-    btn1 = tkinter.Button(
-        root, text='1', command=lambda: print_symbol_to_screen(input_var, '1'), **BTN_STYLE)
-
-    btn2 = tkinter.Button(
-        root, text='2', command=lambda: print_symbol_to_screen(input_var, '2'), **BTN_STYLE)
-
-    btn3 = tkinter.Button(
-        root, text='3', command=lambda: print_symbol_to_screen(input_var, '3'), **BTN_STYLE)
-
-    btn4 = tkinter.Button(
-        root, text='4', command=lambda: print_symbol_to_screen(input_var, '4'), **BTN_STYLE)
-
-    btn5 = tkinter.Button(
-        root, text='5', command=lambda: print_symbol_to_screen(input_var, '5'), **BTN_STYLE)
-
-    btn6 = tkinter.Button(
-        root, text='6', command=lambda: print_symbol_to_screen(input_var, '6'), **BTN_STYLE)
-
-    btn7 = tkinter.Button(
-        root, text='7', command=lambda: print_symbol_to_screen(input_var, '7'), **BTN_STYLE)
-
-    btn8 = tkinter.Button(
-        root, text='8', command=lambda: print_symbol_to_screen(input_var, '8'), **BTN_STYLE)
-
-    btn9 = tkinter.Button(
-        root, text='9', command=lambda: print_symbol_to_screen(input_var, '9'), **BTN_STYLE)
-
-    # place the number buttons.
-    btn0.place(x=85, y=343)
-    btn1.place(x=0, y=288)
-    btn2.place(x=85, y=288)
-    btn3.place(x=170, y=288)
-    btn4.place(x=0, y=232)
-    btn5.place(x=85, y=232)
-    btn6.place(x=170, y=232)
-    btn7.place(x=0, y=176)
-    btn8.place(x=85, y=176)
-    btn9.place(x=170, y=176)
-
-    # create operations buttons.
-    add_btn = tkinter.Button(
-        root, text='+', command=lambda: print_symbol_to_screen(input_var, '+'), **BTN_STYLE)
-
-    sub_btn = tkinter.Button(
-        root, text='-', command=lambda: print_symbol_to_screen(input_var, '-'), **BTN_STYLE)
-
-    mul_btn = tkinter.Button(
-        root, text='x', command=lambda: print_symbol_to_screen(input_var, 'x'), **BTN_STYLE)
-
-    div_btn = tkinter.Button(
-        root, text='÷', command=lambda: print_symbol_to_screen(input_var, '÷'), **BTN_STYLE)
-
-    dot_btn = tkinter.Button(
-        root, text='.', command=lambda: print_symbol_to_screen(input_var, '.'), **BTN_STYLE)
+    btns = [tkinter.Button(
+            root, text=char, command=print_symbol_to_screen(input_var, char), **BTN_STYLE) for char in "0123456789+-x÷."]
 
     eql_btn = tkinter.Button(root, text="=", command=lambda: eql_btn_command(
         input_var, result_var), **BTN_STYLE)
-
-    # place operations buttons.
-    mul_btn.place(x=255, y=176)
-    sub_btn.place(x=255, y=232)
-    add_btn.place(x=255, y=288)
-    div_btn.place(x=255, y=343)
-    dot_btn.place(x=0, y=343)
-    eql_btn.place(x=170, y=343)
-
-    # create clear buttons.
 
     clear_screen_btn = tkinter.Button(
         root, text="AC", command=lambda: clear_screen_btn_command(input_var, result_var),
@@ -254,6 +212,36 @@ def main_window():
     clear_last_digit_btn = tkinter.Button(
         root, text='C', command=lambda: clear_last_digit_btn_command(input_var, result_var),
         width=11, **CLEAR_BTN_STYLE)
+
+    def bind_button_with_event(button, func):
+        """"""
+        return lambda e: func(button)
+
+    for btn in btns:
+
+        btn.bind("<Button-1>", bind_button_with_event(btn, button_click_event))
+        btn.bind("<ButtonRelease-1>",
+                 bind_button_with_event(btn, button_release_event))
+
+    # place the number buttons.
+    btns[0].place(x=85, y=343)
+    btns[1].place(x=0, y=288)
+    btns[2].place(x=85, y=288)
+    btns[3].place(x=170, y=288)
+    btns[4].place(x=0, y=232)
+    btns[5].place(x=85, y=232)
+    btns[6].place(x=170, y=232)
+    btns[7].place(x=0, y=176)
+    btns[8].place(x=85, y=176)
+    btns[9].place(x=170, y=176)
+
+    # place operations buttons.
+    btns[12].place(x=255, y=176)
+    btns[11].place(x=255, y=232)
+    btns[10].place(x=255, y=288)
+    btns[13].place(x=255, y=343)
+    btns[14].place(x=0, y=343)
+    eql_btn.place(x=170, y=343)
 
     # now place clear buttons.
     clear_screen_btn.place(x=0, y=398)
@@ -273,6 +261,8 @@ def main_window():
     # place screen labels.
     screen_label.place(x=0, y=5)
     result_label.place(x=0, y=50)
+
+    clear_screen_btn_command(input_var, result_var)
 
     start_app(root)
 
